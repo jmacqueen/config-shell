@@ -54,7 +54,11 @@ else
 	PHEAD=""
 fi
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}${PHEAD}%F{3}[%T] %F{4}%~ ${vcs_info_msg_0_}${NEWLINE}%F{3}>>%f '
+DIM='%{\033[2m%}'
+RESET='%{\033[0m%}'
+HORIZONTAL_RULE="$(printf '%*s' "$(tput cols)" '' | tr ' ' '─')"
+
+PROMPT='${NEWLINE}${PHEAD}%F{yellow}[%T] %F{blue}%~ ${vcs_info_msg_0_}${NEWLINE}%F{yellow}>>%f '
 # RPROMPT='${vcs_info_msg_0_}'
 
 alias serv='python -m SimpleHTTPServer 8888'
