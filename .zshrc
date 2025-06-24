@@ -64,7 +64,9 @@ PROMPT='${NEWLINE}${PHEAD}%F{yellow}[%T] %F{blue}%~ ${vcs_info_msg_0_}${NEWLINE}
 alias serv='python -m SimpleHTTPServer 8888'
 
 # Temporary stuff
-alias afp-home='ssh -f jonathan@jmacqueen.duckdns.org -L 15548:192.168.1.129:548 sleep 360'
+alias home-afp='ssh -f jonathan@jmacqueen.duckdns.org -L 15548:192.168.1.129:548 sleep 360'
+alias home-smb='ssh -f jonathan@jmacqueen.duckdns.org -L 8139:192.168.9.129:139 sleep 360'
+alias home-proxy='ssh -f jonathan@jmacqueen.duckdns.org -L 8118:192.168.9.133:8118 sleep 360'
 alias ytdl="yt-dlp -S res,ext:mp4:m4a --proxy http://192.168.9.133:8118 --recode mp4"
 alias ytdl-audio="yt-dlp -x --proxy http://192.168.9.133:8118 --restrict-filenames --audio-format mp3"
 
