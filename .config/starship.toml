@@ -1,0 +1,26 @@
+scan_timeout = 100
+
+[aws]
+format = 'on [$symbol($profile )]($style) '
+style = 'bold blue'
+symbol = '🅰 '
+
+[docker_context]
+disabled = true
+
+[git_branch]
+truncation_length = 21
+
+[git_commit]
+tag_disabled = false
+
+[nodejs]
+version_format = 'v${major}'
+
+[package]
+disabled = false
+format = 'is [$symbol$version]($style) '
+
+[status]
+disabled = false
+

@@ -4,6 +4,8 @@ setopt autocd
 setopt PROMPT_SUBST
 stty -ixon
 
+export EDITOR='nvim'
+
 ##########
 # HISTORY
 ##########
@@ -180,6 +182,8 @@ eval "$(fzf --zsh)" # fzf shell integration
 alias fshow="~/scripts/fshow.sh"
 
 export PATH="/Users/jonathan/.local/bin:$PATH"
+
+eval "$(starship init zsh)"
 
 [[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
 
