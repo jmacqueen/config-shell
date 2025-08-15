@@ -1,0 +1,65 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "autoshare": false,
+  "autoupdate": false,
+  "keybinds": {
+    "leader": "ctrl+e",
+    "messages_previous": "ctrl+alt+k",
+    "messages_next": "ctrl+alt+j"
+  },
+  "instructions": ["{file:./AGENTS-local.md}"],
+  "agent": {
+    "build": {
+      "model": "github-copilot/gpt-4.1"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true
+    },
+    "atlassian": {
+      "type": "local",
+      "environment": {
+        "JIRA_URL": "https://bitsight.atlassian.net",
+        "CONFLUENCE_URL": "https://bitsight.atlassian.net/wiki"
+      },
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/sse"
+      ],
+      "enabled": true
+    },
+    "sequentialthinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "enabled": true
+    },
+    "searxng": {
+      "type": "local",
+      "environment": {
+        "SEARXNG_URL": "http://localhost:8888/"
+      },
+      "command": ["npx", "-y", "mcp-searxng"],
+      "enabled": true
+    },
+    "figma": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp",
+      "enabled": false
+    }
+  }
+}
