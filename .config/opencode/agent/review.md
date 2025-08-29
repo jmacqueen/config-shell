@@ -1,6 +1,6 @@
 ---
 description: Reviews code for quality and best practices
-mode: subagent
+mode: primary
 model: github-copilot/claude-3.5-sonnet
 temperature: 0.1
 tools:

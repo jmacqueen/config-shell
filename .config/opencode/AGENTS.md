@@ -2,6 +2,10 @@
 
 This file is located at: ~/.config/opencode/AGENTS.md
 
+## Environment-specific rules
+
+Also make sure to read the AGENTS-local.md file in this directory, if present.
+
 ## Context7 Usage Policy
 
 opencode must always use the context7 tool when the user requests code examples, setup or configuration steps, or library/API documentation. context7 should also be referenced before writing code.

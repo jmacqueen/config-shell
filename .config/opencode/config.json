@@ -4,9 +4,7 @@
   "autoshare": false,
   "autoupdate": false,
   "keybinds": {
-    "leader": "ctrl+e",
-    "messages_previous": "ctrl+alt+k",
-    "messages_next": "ctrl+alt+j"
+    "leader": "ctrl+e"
   },
   "instructions": ["{file:./AGENTS-local.md}"],
   "agent": {
