@@ -4,9 +4,26 @@
   "autoshare": false,
   "autoupdate": false,
   "keybinds": {
-    "leader": "ctrl+e"
+    "leader": "ctrl+o",
+    "session_child_cycle": "<leader>right",
+    "session_child_cycle_reverse": "<leader>left"
   },
   "instructions": ["{file:./AGENTS-local.md}"],
+  "provider": {
+    "bs-ai-mcl": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Bitsight AI Gateway",
+      "options": {
+        "baseURL": "{env:BS_LLM_API_BASE}",
+        "apiKey": "{env:BS_LLM_API_KEY}"
+      },
+      "models": {
+        "gemini-2.5-flash": {
+          "name": "gemini-2.5-flash"
+        }
+      }
+    }
+  },
   "agent": {
     "build": {
       "model": "github-copilot/gpt-4.1"
@@ -16,12 +33,12 @@
     "context7": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": true
+      "enabled": false
     },
     "playwright": {
       "type": "local",
       "command": ["npx", "-y", "@playwright/mcp@latest"],
-      "enabled": true
+      "enabled": false
     },
     "atlassian": {
       "type": "local",
