@@ -63,7 +63,12 @@ HORIZONTAL_RULE="$(printf '%*s' "$(tput cols)" '' | tr ' ' '─')"
 PROMPT='${NEWLINE}${PHEAD}%F{yellow}[%T] %F{blue}%~ ${vcs_info_msg_0_}${NEWLINE}%F{yellow}>>%f '
 # RPROMPT='${vcs_info_msg_0_}'
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 alias serv='python -m SimpleHTTPServer 8888'
+
+# AI aliases
+alias ask='opencode run'
 
 # Temporary stuff
 alias home-afp='ssh -f jonathan@jmacqueen.duckdns.org -L 15548:192.168.1.129:548 sleep 360'

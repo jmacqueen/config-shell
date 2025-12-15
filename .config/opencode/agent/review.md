@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: primary
-model: github-copilot/claude-3.5-sonnet
+model: github-copilot/claude-haiku-4.5
 temperature: 0.1
 tools:
   write: false

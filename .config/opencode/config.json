@@ -26,14 +26,22 @@
   },
   "agent": {
     "build": {
-      "model": "github-copilot/gpt-4.1"
+      "model": "github-copilot/gpt-5.1-codex-mini"
+    },
+    "plan": {
+      "model": "github-copilot/gpt-5"
     }
   },
   "mcp": {
     "context7": {
       "type": "local",
       "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": false
+      "enabled": true
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "chrome-devtools-mcp@latest"],
+      "enabled": true
     },
     "playwright": {
       "type": "local",
@@ -52,7 +60,7 @@
         "mcp-remote",
         "https://mcp.atlassian.com/v1/sse"
       ],
-      "enabled": true
+      "enabled": false
     },
     "sequentialthinking": {
       "type": "local",
@@ -61,7 +69,7 @@
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
       ],
-      "enabled": true
+      "enabled": false
     },
     "searxng": {
       "type": "local",
