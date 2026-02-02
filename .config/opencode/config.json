@@ -3,6 +3,7 @@
   "theme": "opencode",
   "autoshare": false,
   "autoupdate": false,
+  "model": "github-copilot/gpt-5.1-codex-mini",
   "keybinds": {
     "leader": "ctrl+o",
     "session_child_cycle": "<leader>right",
@@ -14,8 +15,8 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Bitsight AI Gateway",
       "options": {
-        "baseURL": "{env:BS_LLM_API_BASE}",
-        "apiKey": "{env:BS_LLM_API_KEY}"
+        "baseURL": "{env:BS_LLM_API_BASE_DEV}",
+        "apiKey": "{env:BS_LLM_API_KEY_DEV}"
       },
       "models": {
         "gemini-2.5-flash": {
@@ -25,11 +26,16 @@
     }
   },
   "agent": {
-    "build": {
-      "model": "github-copilot/gpt-5.1-codex-mini"
-    },
     "plan": {
-      "model": "github-copilot/gpt-5"
+      "model": "github-copilot/claude-opus-4.5",
+      "permission": {
+        "edit": {
+          "*": "ask",
+          "*.md": "allow",
+          "*.mdx": "allow",
+          "*.txt": "allow"
+        }
+      }
     }
   },
   "mcp": {
@@ -48,20 +54,6 @@
       "command": ["npx", "-y", "@playwright/mcp@latest"],
       "enabled": false
     },
-    "atlassian": {
-      "type": "local",
-      "environment": {
-        "JIRA_URL": "https://bitsight.atlassian.net",
-        "CONFLUENCE_URL": "https://bitsight.atlassian.net/wiki"
-      },
-      "command": [
-        "npx",
-        "-y",
-        "mcp-remote",
-        "https://mcp.atlassian.com/v1/sse"
-      ],
-      "enabled": false
-    },
     "sequentialthinking": {
       "type": "local",
       "command": [
@@ -78,11 +70,6 @@
       },
       "command": ["npx", "-y", "mcp-searxng"],
       "enabled": true
-    },
-    "figma": {
-      "type": "remote",
-      "url": "http://127.0.0.1:3845/mcp",
-      "enabled": false
     }
   }
 }
