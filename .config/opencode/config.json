@@ -3,7 +3,6 @@
   "theme": "opencode",
   "share": "disabled",
   "autoupdate": false,
-  "disabled_providers": ["amazon-bedrock", "opencode", "openai", "gitlab"],
   "model": "github-copilot/claude-haiku-4.5",
   "instructions": ["~/.config/opencode/AGENTS-local.md"],
   "provider": {
