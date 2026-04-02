@@ -1,6 +1,6 @@
 ---
 description: Create a plan from a set of requirements
-model: github-copilot/gemini-2.5-pro
+model: github-copilot/gpt-5.3-codex
 mode: primary
 ---
 

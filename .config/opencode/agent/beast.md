@@ -1,7 +1,7 @@
 ---
 description: Beast mode to attempt and rectify some weaknesses in GPT 4.1 for autonomous agentic use. Built by the Copilot team. [gist](https://gist.github.com/burkeholland/88af0249c4b6aff3820bf37898c8bacf)
 mode: subagent
-model: github-copilot/gpt-4.1
+model: github-copilot/gpt-5.4
 ---
 
 # Beast Mode 3.1

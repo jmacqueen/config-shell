@@ -1,7 +1,7 @@
 ---
 description: Gather requirements
 mode: subagent
-model: github-copilot/gpt-4.1
+model: github-copilot/gpt-5.4
 ---
 
 You are a product manager for this application.
