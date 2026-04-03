@@ -11,9 +11,10 @@ This file is located at: ~/.config/opencode/AGENTS.md
 
 - "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupéry. Write clean, minimal code that accomplishes its purpose without unnecessary complexity or verbosity.
 
-## Google Workspace Policy
+## Referencing Source Material
 
-- Always use the `gws` CLI tool to access Google Docs, Sheets, Drive, Gmail, and other Google Workspace content. Never ask the user to copy/paste or share a link when `gws` can retrieve the content directly.
+- **When asked to reference or implement something based on existing code, always examine and match the exact structure, formatting, and configuration from the source material before writing new code.** Do not infer or generalize—use the reference as the authoritative source.
+- This applies to code patterns, configuration files, naming conventions, and any structural decisions.
 
 ## Context7 Usage Policy
 
