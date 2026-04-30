@@ -179,6 +179,38 @@ ggrep-all () {
         for i in ./*/; do ( cd $i; pwd; git grep $1 HEAD ); done
 }
 
+# downsize massive VR video files
+function downsize_vr_video() {
+  local input_file="$1"
+  local output_file="$2"
+
+  if [[ -z "$input_file" || -z "$output_file" ]]; then
+    echo "Usage: downsize_video <input.mp4> <output.mp4>"
+    return 1
+  fi
+
+  # Get input video dimensions
+  local input_width=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=noprint_wrappers=1:nokey=1 "$input_file")
+  local input_height=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=noprint_wrappers=1:nokey=1 "$input_file")
+
+  # Check if downsizing is needed
+  if (( input_width <= 7200 && input_height <= 3600 )); then
+    echo "Input video is already at or below the target dimensions. No downsizing needed."
+    return 0
+  fi
+
+  ffmpeg -i "$input_file" -vf "scale=7200:3600:force_original_aspect_ratio=decrease" -c:v libx264 -crf 23 -c:a copy "$output_file"
+  local return_code=$?
+
+  if [[ $return_code -eq 0 ]]; then
+    echo "Successfully downsized '$input_file' to '$output_file'."
+  else
+    echo "Error downscaling '$input_file'. FFmpeg returned an error code: $return_code"
+  fi
+
+  return $return_code
+}
+
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -197,6 +229,7 @@ eval "$(fzf --zsh)" # fzf shell integration
 alias fshow="~/scripts/fshow.sh"
 
 export PATH="/Users/jonathan/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 eval "$(starship init zsh)"
 
