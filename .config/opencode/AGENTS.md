@@ -4,21 +4,22 @@ This file is located at: ~/.config/opencode/AGENTS.md
 
 - Do not edit code unless specifically asked to do so.
 - Do not commit code until specifically asked to do so.
-- When writing temporary files, write to ~/tmp instead of /tmp
-- When using ~/tmp for temporary work, organize files by chat session (e.g., `~/tmp/chat-session-name/`) unless adding to specific previous work
+- If files you write do not need to be included in the current repository, use `~/tmp`
+- When using ~/tmp for temporary work, create a new folder organized by chat session (e.g., `~/tmp/chat-session-name/`) unless adding to specific previous work
 
 ## Code Writing Philosophy
 
-- "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupéry. Write clean, minimal code that accomplishes its purpose without unnecessary complexity or verbosity.
+- "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupéry. Write clean, minimal code that accomplishes its purpose without unnecessary complexity or verbosity. Review your work and if it is over-complicated, simplify.
 
 ## Referencing Source Material
 
 - **When asked to reference or implement something based on existing code, always examine and match the exact structure, formatting, and configuration from the source material before writing new code.** Do not infer or generalize—use the reference as the authoritative source.
 - This applies to code patterns, configuration files, naming conventions, and any structural decisions.
+- Remember that you have access to the internet to make sure your knowledge is current. Double-check what you think you know.
 
-## Context7 Usage Policy
+## Source of Truth
 
-opencode must always use the context7 tool (if present) when the user requests code examples, setup or configuration steps, or library/API documentation. context7 should also be referenced before writing code.
+- When asked to diagram, document, or explain a database schema or API, always read the actual entity/model source files first. Do not rely on architecture docs or READMEs — they may be stale.
 
 ## Tool Invocation Policy
 
@@ -38,11 +39,11 @@ opencode must always use the context7 tool (if present) when the user requests c
 ## Copying Arbitrary Content from Chat to Clipboard
 
 - To copy any content from chat (such as code snippets, policy text, or instructions) to your clipboard:
-   1. **Write only the intended content to a temporary file in `~/tmp`**  
+  1.  **Write only the intended content to a temporary file in `~/tmp`**  
       Example:  
       echo "your content here" > ~/tmp/clipboard_content.txt
       - _Do not include extraneous chat communications, instructions, or metadata—copy only the relevant content._
-   2. **Copy the file contents to your clipboard using pbcopy**  
+  2.  **Copy the file contents to your clipboard using pbcopy**  
       Example:  
       pbcopy < ~/tmp/clipboard_content.txt
 - This workflow allows you to easily transfer any chat content to your clipboard, ensuring only the desired text is included.

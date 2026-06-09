@@ -3,7 +3,8 @@
   "theme": "opencode",
   "share": "disabled",
   "autoupdate": false,
-  "model": "github-copilot/claude-haiku-4.5",
+  "lsp": true,
+  "model": "github-copilot/gpt-5.4",
   "instructions": ["~/.config/opencode/AGENTS-local.md"],
   "provider": {
     "bs-ai-mcl": {
@@ -26,6 +27,18 @@
         "anthropic.claude-opus-4-6-v1": {
           "name": "Claude Opus 4.6"
         },
+        "gpt-5.5": {
+          "name": "GPT-5.5",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          }
+        },
+        "gpt-5.4": {
+          "name": "GPT-5.4",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          }
+        },
         "gpt-5.2-codex": {
           "name": "GPT-5.2 Codex",
           "provider": {
@@ -45,6 +58,28 @@
           "name": "gemini-3-pro-preview"
         }
       }
+    },
+    "omlx": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "omlx",
+      "blacklist": ["MarkItDown"],
+      "options": {
+        "baseURL": "http://127.0.0.1:9999/v1",
+        "apiKey": "{env:OMLX_API_KEY}",
+        "probe": "omlx"
+      },
+      "models": {
+        "Qwen3-Coder-Next-MLX-4bit": {
+          "name": "Qwen3-Coder-Next-MLX-4bit"
+        },
+        "MarkItDown": {
+          "name": "MarkItDown",
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          }
+        }
+      }
     }
   },
   "agent": {
@@ -60,6 +95,7 @@
       }
     }
   },
+  "plugin": ["opencode-model-scout"],
   "mcp": {
     "context7": {
       "type": "local",
