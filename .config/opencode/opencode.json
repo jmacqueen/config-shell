@@ -4,7 +4,7 @@
   "share": "disabled",
   "autoupdate": false,
   "lsp": true,
-  "model": "github-copilot/gpt-5.4",
+  "model": "bs-ai-mcl/gpt-5.4",
   "instructions": ["~/.config/opencode/AGENTS-local.md"],
   "provider": {
     "bs-ai-mcl": {
@@ -71,13 +71,6 @@
       "models": {
         "Qwen3-Coder-Next-MLX-4bit": {
           "name": "Qwen3-Coder-Next-MLX-4bit"
-        },
-        "MarkItDown": {
-          "name": "MarkItDown",
-          "limit": {
-            "context": 131072,
-            "output": 8192
-          }
         }
       }
     }
