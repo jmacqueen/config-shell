@@ -21,6 +21,13 @@ This file is located at: ~/.config/opencode/AGENTS.md
 
 - When asked to diagram, document, or explain a database schema or API, always read the actual entity/model source files first. Do not rely on architecture docs or READMEs — they may be stale.
 
+## Deep Research Policy
+
+- **Always start with a live search of the internet** — never assume knowledge from training data.
+- Do broad, unguided sweeps before narrowing down. Search for general terms, not just specific keywords you expect to be relevant.
+- Discover actual names, terms, and entities from search results before doing targeted follow-up searches.
+- Do not claim your search was broad if it was targeted. Be honest about what you found vs. what you were told.
+
 ## Tool Invocation Policy
 
 - Provide a terse, one-line explanation before invoking any tool.

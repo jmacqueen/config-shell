@@ -1,11 +1,28 @@
 ---
 name: tmux
-description: Remote control tmux sessions for interactive CLIs (python, gdb, etc.) by sending keystrokes and scraping pane output. Also use for long-running tasks like test runners that need to be periodically monitored.
+description: Use for interactive CLI commands, TUIs, REPLs, debuggers, database shells, or any command that expects a live terminal. Also use for long-running tasks like test runners that need to be periodically monitored. When the harness encounters an interactive CLI or TUI, use this skill by default.
 ---
 
 # tmux Skill
 
 Use tmux as a programmable terminal multiplexer for interactive work. Works on Linux and macOS with stock tmux; avoid custom config by using a private socket.
+
+## When to use this skill
+
+Use this skill by default whenever the harness encounters, or is about to launch, an interactive CLI command or TUI.
+
+This includes:
+
+- terminal UIs
+- REPLs
+- debuggers
+- database shells
+- package manager interactive flows
+- password or confirmation prompts that require ongoing terminal interaction
+- full-screen tools
+- any command that keeps control of the terminal and expects live keystrokes
+
+Do not try to drive interactive terminal programs through ordinary one-shot bash execution when tmux is appropriate. If a command is interactive, assume this skill should be used unless there is a strong reason not to.
 
 ## Quickstart
 
