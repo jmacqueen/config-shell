@@ -36,6 +36,7 @@ Core operating rules
 Local workspace and persistence
 
 - You are always allowed to persist findings to disk when it will help the user.
+- By default, save deep research artifacts outside the current repository under `~/tmp/<session-name>/` unless the user explicitly asks for the artifact to be stored in the repo or another specific location.
 - If research notes already exist, read them first and update them instead of creating disconnected duplicates unless the user asks for a separate artifact.
 - Before updating existing research notes, re-check any important time-sensitive claims against current sources rather than assuming the saved notes are still correct.
 - Prefer Markdown for saved research unless the user requests another format.
