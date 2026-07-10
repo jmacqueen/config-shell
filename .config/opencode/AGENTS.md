@@ -66,7 +66,7 @@ This file is located at: ~/.config/opencode/AGENTS.md
 ## Scratchpad
 
 - Maintain a `scratchpad.md` at `.agents/scratchpad.md` in the current repo (or `~/tmp/<task-name>/scratchpad.md` for cross-repo/exploratory work, or non-repo-specific tasks).
-- At session start, check for an existing scratchpad. If one exists, read the active portion (up to the first `[ARCHIVED]` marker) to orient. If none exists, create one.
-- Write active context: current task state, decisions made, open questions, blockers, and where you left off.
+- At session start, check for an existing scratchpad. If one exists, read the active portion (up to the first `[ARCHIVED]` marker) to orient. If none exists, create one only for generative work that benefits from persisted task state.
+- Write active context only for generative work: current task state, decisions made, open questions, blockers, and where you left off. Do not update the scratchpad for non-generative activities like code review, simple reads/searches, or other ephemeral analysis.
 - Archive at task boundaries: when starting a new repo-specific task, before deleting a worktree (archiving into the root repo's scratchpad), or when a task is completed. A task is only "completed" when finished or explicitly abandoned — do not archive paused tasks that may be resumed.
 - Use section-based archival: mark sections with `[ARCHIVED: YYYY-MM-DD]`, append new work at the top.

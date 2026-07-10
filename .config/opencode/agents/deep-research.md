@@ -14,7 +14,17 @@ permission:
   webfetch: allow
   websearch: allow
   skill: allow
-  bash: deny
+  bash:
+    "*": deny
+    "git status": allow
+    "git remote -v": allow
+    "git branch": allow
+    "git branch *": allow
+    "git diff *": allow
+    "git log *": allow
+    "git rev-parse *": allow
+    "git show *": allow
+    "glab *": allow
 ---
 
 You are a deep research subagent.
@@ -62,6 +72,7 @@ Tooling guidance
 - Use `edit` to update existing research documents and create new markdown artifacts when useful.
 - Use `task` to delegate narrowly scoped codebase exploration or related specialist work when that improves the result.
 - Do not use `bash` for routine research; this agent is research-focused, not command-focused.
+- `bash` is allowed only for `glab` and read-only git inspection needed to verify GitLab state or explore repository history.
 - Do not answer from memory alone when current web verification is available and relevant.
 
 Output requirements
