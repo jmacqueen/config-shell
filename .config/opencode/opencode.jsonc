@@ -1,0 +1,190 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "autoupdate": false,
+  "lsp": true,
+  "model": "github-copilot/gpt-5.6-terra",
+  "instructions": [
+    "~/.config/opencode/AGENTS-local.md"
+  ],
+  "provider": {
+    "bs-ai-mcl": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Bitsight AI Gateway",
+      "options": {
+        "baseURL": "{env:BS_LLM_API_BASE_DEV}",
+        "apiKey": "{env:BS_LLM_API_KEY_DEV}"
+      },
+      "models": {
+        "anthropic.claude-haiku-4-5-20251001-v1:0": {
+          "name": "Claude Haiku 4.5"
+        },
+        "us.anthropic.claude-sonnet-4-5-20250929-v1:0": {
+          "name": "Claude Sonnet 4.5"
+        },
+        "anthropic.claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6"
+        },
+        "anthropic.claude-opus-4-6-v1": {
+          "name": "Claude Opus 4.6"
+        },
+        "gpt-5.5": {
+          "name": "GPT-5.5",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          }
+        },
+        "gpt-5.4": {
+          "name": "GPT-5.4",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          }
+        },
+        "gemini-2.5-pro": {
+          "name": "gemini-2.5-pro"
+        },
+        "gemini-3-pro-preview": {
+          "name": "gemini-3-pro-preview"
+        }
+      }
+    },
+    "omlx": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "omlx",
+      "blacklist": [
+        "MarkItDown"
+      ],
+      "options": {
+        "baseURL": "http://127.0.0.1:9999/v1",
+        "apiKey": "{env:OMLX_API_KEY}",
+        "probe": "omlx"
+      },
+      "models": {
+        "Qwen3-Coder-Next-MLX-4bit": {
+          "name": "Qwen3 Coder Next (4-bit)"
+        },
+        "Qwen3-Coder-Next-MLX-6bit": {
+          "name": "Qwen3 Coder Next (6-bit)"
+        },
+        "Qwen3.6-35B-A3B-MTP-Holo3-Qwopus-Coder-qx64y-hi-mlx": {
+          "name": "Qwen3.6 35B Coder (qx64y-hi)"
+        },
+        "Qwen3.6-35B-A3B-oQ6-fp16-mtp": {
+          "name": "Qwen3.6 35B (oQ6 fp16 MTP)"
+        }
+      }
+    },
+    // Detected copilot authentication; opencode-quota added this global provider declaration.
+    "copilot": {},
+    "github-copilot": {
+      "models": {
+        "gpt-5.6-terra": {
+          "options": {
+            "reasoningEffort": "high",
+            "reasoningSummary": "auto",
+            "include": [
+              "reasoning.encrypted_content"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "plan": {
+      "model": "bs-ai-mcl/anthropic.claude-opus-4-6-v1",
+      "permission": {
+        "edit": {
+          "*": "ask",
+          "*.md": "allow",
+          "*.mdx": "allow",
+          "*.txt": "allow"
+        }
+      }
+    }
+  },
+  "permission": {
+    "external_directory": {
+      "*": "ask",
+      "~/tmp/**": "allow"
+    }
+  },
+  // OpenCode Quota: tuiCommandDisplay chooses whether native TUI command output appears in the session transcript or a local popup dialog.
+  // OpenCode Quota: loads the server plugin for slash commands and quota checks.
+  "plugin": [
+    "opencode-model-scout",
+    "@slkiser/opencode-quota@latest"
+  ],
+  "mcp": {
+    "slack": {
+      "type": "remote",
+      "url": "https://mcp.slack.com/mcp",
+      "enabled": false,
+      "oauth": {
+        "clientId": "1601185624273.8899143856786",
+        "redirectUri": "http://localhost:3118/callback"
+      }
+    },
+    "bitsight": {
+      "type": "remote",
+      "url": "https://mcp.bitsighttech.com/mcp",
+      "enabled": false
+    },
+    "atlassian_rovo": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": false
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ],
+      "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": false
+    },
+    "agentic-mermaid": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "agentic-mermaid",
+        "mcp"
+      ],
+      "enabled": true,
+      "timeout": 30000
+    },
+    "searxng": {
+      "type": "local",
+      "environment": {
+        "SEARXNG_URL": "http://localhost:8888/"
+      },
+      "command": [
+        "mcp-searxng"
+      ],
+      "enabled": false
+    },
+     "datadog": {
+      "type": "remote",
+      "url": "https://mcp.datadoghq.com/v1/mcp",
+      "enabled": false
+    }
+  }
+}

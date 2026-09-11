@@ -1,0 +1,52 @@
+{
+  // Automatic quota surfaces. Slash commands remain available when these are disabled.
+  "enableToast": false,
+  "tuiCommandDisplay": "inline",
+  // Include or hide session input and output token totals.
+  "showSessionTokens": false,
+  // Session token totals: "current" session only, or "tree" including descendants.
+  "sessionTokenScope": "current",
+  // Provider selection: "auto" detects providers; an array tracks only listed providers.
+  "enabledProviders": "auto",
+  // Quota presentation and reset-period choices.
+  "formatStyle": "allWindows",
+  "percentDisplayMode": "used",
+  // TUI-only surfaces.
+  "tuiSidebarPanel": {
+    "enabled": true
+  },
+  // Optional bundled maintainer Home announcements.
+  "maintainerAnnouncements": {
+    "enabled": true,
+    "home": true
+  },
+  "enabledProviders": "auto",
+  "quotaProviders": [
+    // Bitsight LLM gateway
+    {
+      "id": "bitsight-ai-gateway",
+      "providerId": "bs-ai-mcl",
+      "label": "Bitsight AI Gateway",
+      "mode": "remote-api",
+      "url": "https://ai-mcl-us.bitsight-development.bsku.be/key/info",
+      "format": "json-v1",
+      "apiKeyEnv": "BS_LLM_API_KEY_DEV",
+      "adapter": {
+        "mappings": [
+          {
+            "resultType": "budget",
+            "name": "Budget",
+            "label": "24h:",
+            "unit": "$",
+            "unitPosition": "prefix",
+            "metric": {
+              "type": "spend-budget",
+              "spend": { "path": ["info", "spend"] },
+              "budget": { "path": ["info", "max_budget"] }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

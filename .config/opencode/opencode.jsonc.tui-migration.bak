@@ -5,7 +5,9 @@
   "autoupdate": false,
   "lsp": true,
   "model": "bs-ai-mcl/gpt-5.4",
-  "instructions": ["~/.config/opencode/AGENTS-local.md"],
+  "instructions": [
+    "~/.config/opencode/AGENTS-local.md"
+  ],
   "provider": {
     "bs-ai-mcl": {
       "npm": "@ai-sdk/openai-compatible",
@@ -62,7 +64,9 @@
     "omlx": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "omlx",
-      "blacklist": ["MarkItDown"],
+      "blacklist": [
+        "MarkItDown"
+      ],
       "options": {
         "baseURL": "http://127.0.0.1:9999/v1",
         "apiKey": "{env:OMLX_API_KEY}",
@@ -88,21 +92,55 @@
       }
     }
   },
-  "plugin": ["opencode-model-scout"],
+  // OpenCode Quota: tuiCommandDisplay chooses whether native TUI command output appears in the session transcript or a local popup dialog.
+  // OpenCode Quota: loads the server plugin for slash commands and quota checks.
+  "plugin": [
+    "opencode-model-scout",
+    "@slkiser/opencode-quota@latest"
+  ],
   "mcp": {
+    "slack": {
+      "type": "remote",
+      "url": "https://mcp.slack.com/mcp",
+      "enabled": false,
+      "oauth": {
+        "clientId": "1601185624273.8899143856786",
+        "redirectUri": "http://localhost:3118/callback"
+      }
+    },
+    "bitsight": {
+      "type": "remote",
+      "url": "https://mcp.bitsighttech.com/mcp",
+      "enabled": false
+    },
+    "atlassian_rovo": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+    },
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
       "enabled": false
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["npx", "chrome-devtools-mcp@latest"],
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ],
       "enabled": false
     },
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
       "enabled": false
     },
     "searxng": {
@@ -110,7 +148,9 @@
       "environment": {
         "SEARXNG_URL": "http://localhost:8888/"
       },
-      "command": ["mcp-searxng"],
+      "command": [
+        "mcp-searxng"
+      ],
       "enabled": false
     }
   }
