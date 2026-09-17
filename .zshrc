@@ -70,15 +70,16 @@ alias serv='python -m SimpleHTTPServer 8888'
 
 # AI aliases
 alias ask='opencode run'
-export SAFEHOUSE_APPEND_PROFILE="$HOME/.config/agent-safehouse/local-overrides.sb"
-safe() {
-  safehouse \
-    --enable=ssh,keychain,clipboard,agent-browser,playwright-chrome,microphone \
-    --append-profile="$SAFEHOUSE_APPEND_PROFILE" \
-    "$@"
-}
-alias oc='safe --env-pass=BS_LLM_API_BASE_DEV,BS_LLM_API_KEY_DEV,OPENCODE_ENABLE_EXA opencode'
-alias cc='safe claude --dangerously-skip-permissions'
+alias wm="workmux"
+# export SAFEHOUSE_APPEND_PROFILE="$HOME/.config/agent-safehouse/local-overrides.sb"
+# safe() {
+#   safehouse \
+#     --enable=ssh,keychain,clipboard,agent-browser,playwright-chrome,microphone \
+#     --append-profile="$SAFEHOUSE_APPEND_PROFILE" \
+#     "$@"
+# }
+# alias oc='safe --env-pass=BS_LLM_API_BASE_DEV,BS_LLM_API_KEY_DEV,OPENCODE_ENABLE_EXA opencode'
+# alias cc='safe claude --dangerously-skip-permissions'
 
 # Temporary stuff
 alias home-afp='ssh -f jonathan@jmacqueen.duckdns.org -L 15548:192.168.1.129:548 sleep 360'
@@ -231,6 +232,7 @@ alias fshow="~/scripts/fshow.sh"
 export PATH="/Users/jonathan/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+eval "$(workmux completions zsh)"
 eval "$(starship init zsh)"
 
 [[ -s ~/.zshrc-local ]] && source ~/.zshrc-local
