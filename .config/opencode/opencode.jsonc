@@ -183,7 +183,7 @@
     },
      "datadog": {
       "type": "remote",
-      "url": "https://mcp.datadoghq.com/v1/mcp",
+       "url": "https://mcp.datadoghq.com/v1/mcp?toolsets=all",
       "enabled": false
     }
   }
