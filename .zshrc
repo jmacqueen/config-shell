@@ -212,6 +212,47 @@ function downsize_vr_video() {
   return $return_code
 }
 
+#Convert FLAC to mp3
+flac2mp3_album() {
+  emulate -L zsh
+  setopt null_glob
+
+  if (( $# != 1 )); then
+    print -u2 "Usage: flac2mp3_album '/path/to/album'"
+    return 2
+  fi
+
+  local album="${1%/}"
+  local output="${album} (MP3)"
+  local input filename
+  local -a inputs
+
+  if [[ ! -d "$album" ]]; then
+    print -u2 "Album folder not found: $album"
+    return 1
+  fi
+
+  if (( ! $+commands[ffmpeg] )); then
+    print -u2 "ffmpeg is not installed or is not in your PATH."
+    return 1
+  fi
+
+  inputs=("$album"/*.flac(N) "$album"/*.FLAC(N))
+
+  if (( ${#inputs} == 0 )); then
+    print -u2 "No FLAC files found in: $album"
+    return 1
+  fi
+
+  mkdir -p "$output" || return 1
+
+  for input in "${inputs[@]}"; do
+    filename="${input:t:r}"
+
+    ffmpeg -nostdin -n -i "$input" -map 0:a -map '0:v?' -map_metadata 0 -c:a libmp3lame -q:a 0 -c:v copy -disposition:v:0 attached_pic -id3v2_version 3 -write_id3v1 1 "$output/$filename.mp3"
+  done
+}
+
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
