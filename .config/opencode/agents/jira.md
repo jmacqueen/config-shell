@@ -1,7 +1,8 @@
 ---
 description: Jira helper - search, create, update, and transition issues
 mode: subagent
-model: github-copilot/gpt-5-mini
+model: github-copilot/gpt-6-luna
+variant: high
 permission:
   bash: allow
   webfetch: allow

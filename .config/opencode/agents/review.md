@@ -1,7 +1,8 @@
 ---
 description: Reviews code for quality and best practices
 mode: all
-model: github-copilot/gpt-5.5
+model: github-copilot/gpt-6-luna
+variant: max
 temperature: 0.1
 permission:
   edit: deny

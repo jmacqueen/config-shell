@@ -1,7 +1,8 @@
 ---
 description: Confluence helper - read, create, update pages and attachments
 mode: subagent
-model: github-copilot/gpt-5-mini
+model: github-copilot/gpt-6-luna
+variant: high
 permission:
   bash: allow
   webfetch: allow

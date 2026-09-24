@@ -1,7 +1,8 @@
 ---
 description: Execute the plan
 mode: subagent
-model: github-copilot/gpt-5-mini
+model: github-copilot/gpt-6-luna
+variant: max
 ---
 
 You are a software engineer tasked with implementing the feature described in the attached file.
