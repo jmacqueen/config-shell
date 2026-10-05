@@ -32,8 +32,15 @@ context you already have. The worktree agent does all the work.
 
 ### Create a worktree
 
+Before creating a branch with `workmux add`, ask the user for the Jira ticket key
+unless they already supplied it. Wait for the key before creating the worktree.
+Prefix the branch name with that key, followed by a short kebab-case description
+(for example, `RP-123-fix-login`). If the proposed branch already starts with the
+key, do not add it again. Pass the resulting name explicitly; do not use
+`--auto-name`, which may omit the ticket key.
+
 ```bash
-workmux add <branch-name>
+workmux add <JIRA-KEY>-<short-description>
 ```
 
 Creates a git worktree, runs file operations and hooks, creates a tmux
@@ -43,7 +50,7 @@ Key flags:
 - `--pr <number|url>`: checkout a GitHub pull request by number or full URL into
   a new worktree. The local branch defaults to the PR head branch name. Pass
   `<branch-name>` to override it, for example
-  `workmux add --pr https://github.com/owner/repo/pull/123 custom-name`. Requires
+  `workmux add --pr https://github.com/owner/repo/pull/123 RP-123-custom-name`. Requires
   authenticated `gh`.
 - `-b, --background`: create without switching to it
 - `-p <text>`: inline prompt for AI agent panes
