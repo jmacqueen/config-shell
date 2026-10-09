@@ -1,6 +1,7 @@
 ---
 description: Create a plan from a set of requirements
-model: github-copilot/gpt-6-sol
+model: github-copilot/gpt-6.1-sol
+variant: low
 mode: subagent
 ---
 

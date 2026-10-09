@@ -1,8 +1,8 @@
 ---
 description: Internet-first deep research that verifies current knowledge, persists findings to disk, and updates existing research artifacts
 mode: all
-model: github-copilot/gpt-6-sol
-variant: max
+model: github-copilot/gpt-6.1-sol
+variant: low
 temperature: 0.2
 permission:
   read: allow
