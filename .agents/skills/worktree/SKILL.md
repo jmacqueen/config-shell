@@ -16,9 +16,11 @@ codebase. Do NOT use the Task/Explore agent. Do NOT investigate the problem. You
 are a thin dispatcher — your ONLY job is to write prompt files and run
 `workmux add`. The worktree agent will do all the exploration and implementation.
 
-If the user's message contains enough context and a Jira ticket key, write the
-prompt immediately. Otherwise, ask the user for what is missing — do NOT try to
-figure it out by reading code.
+If the task is explicitly tied to a Jira ticket, use its key for the branch
+name. Ask for the key only when the user describes new ticketed work and has
+not supplied one. Do not require a Jira key for investigations or other
+non-ticketed work. If essential task context is missing, ask the user; do NOT
+try to figure it out by reading code.
 
 If tasks reference earlier conversation (e.g., "do option 2"), include all
 relevant context in each prompt you write.
@@ -28,12 +30,22 @@ ensure you have the latest version before writing prompts.
 
 For each task:
 
-1. Ask for the Jira ticket key if the user has not supplied it. Wait for the
-   answer before creating worktrees. Generate a branch name starting with that
-   key, followed by a short, descriptive kebab-case name (2-4 words), e.g.
+1. For an explicitly ticketed task, generate a branch name starting with its
+   Jira key, followed by a short, descriptive kebab-case name (2-4 words), e.g.
    `RP-123-feature-x`. Do not add the key twice if it is already the prefix.
-2. Write a detailed implementation prompt to a temp file
-3. Run `workmux add <branch-name> -b -P <temp-file>` to create the worktree
+   For non-ticketed tasks, use a short descriptive kebab-case branch name and
+   do not ask for a Jira key.
+2. For a GitLab MR investigation, use the `glab-gitlab` skill to identify the
+   MR URL and create the worktree with `workmux add --pr <MR URL> -P
+   <temp-file>`. This checks out the MR's source branch, which is the branch
+   being investigated; do not branch from the MR's target branch. Do not pass a
+   custom branch name with `--pr`, because that would override the source branch
+   name. If the MR cannot be resolved, ask the user before creating the
+   worktree.
+3. For other tasks, use the current branch as the default worktree base unless
+   the user specifies another base branch.
+4. Write a detailed task prompt to a temp file and create the worktree with
+   `workmux add`.
 
 The prompt file should:
 
