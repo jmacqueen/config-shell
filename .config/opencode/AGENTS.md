@@ -32,6 +32,13 @@ This file is located at: ~/.config/opencode/AGENTS.md
 
 - Provide a terse, one-line explanation before invoking any tool.
 
+## Worktree Skill Selection
+
+- Use the `workmux` skill when creating or opening worktrees with workmux.
+- Also use the `worktree` skill when dispatching a task to an agent in a new worktree.
+- Do not load the `tmux` skill solely because workmux uses tmux. Workmux manages its own sessions and panes.
+- Load `tmux` only when separate interactive-terminal control is needed beyond workmux's commands.
+
 ## `/init` command output
 
 - Do not limit output to 20 lines, but still keep it lean.
